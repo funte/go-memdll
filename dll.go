@@ -59,7 +59,7 @@ func (p *Proc) Addr() uintptr {
 	return p.addr
 }
 
-func (p *Proc) Call(a ...uintptr) (r1, r2 uintptr, lastErr error) {
+func (p *Proc) Call(a ...uintptr) (r1, r2 uintptr, err syscall.Errno) {
 	return syscall.SyscallN(p.Addr(), a...)
 }
 
